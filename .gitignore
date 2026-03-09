@@ -1,8 +1,9 @@
 .venv
-models/densenet/best_fusion_densenet.pth
+app/models/densenet/best_fusion_densenet.pth
 test_api.html
 Dockerfile
-uploads
 __pycache__
-models/__pycache__
-models/densenet/__pycache__
+app/models/__pycache__
+app/models/densenet/__pycache__
+.env
+app/models/densenet/__pycache__

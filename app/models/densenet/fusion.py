@@ -12,7 +12,7 @@ DATASET_STD = [0.19572971761226654, 0.17690013349056244, 0.170320525765419]
 def get_tokenizer():
     return CamembertTokenizer.from_pretrained(TEXT_MODEL_NAME, use_fast=False)
 
-def get_transforms(img_size=(224,224)):
+def get_transforms(img_size=(600,600)):
     return T.Compose([
         T.Resize(img_size),
         T.ToTensor(),
