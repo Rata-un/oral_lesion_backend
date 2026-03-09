@@ -1,9 +1,12 @@
 .venv
 app/models/densenet/best_fusion_densenet.pth
-test_api.html
+app/models/densenet/best_text.pth
+app/models/densenet/best_densenet121_img.pth
 Dockerfile
 __pycache__
 app/models/__pycache__
 app/models/densenet/__pycache__
 .env
 app/models/densenet/__pycache__
+app/appmanualweighted6040.py
+app/preprocessingwangchan.py

@@ -1,3 +1,4 @@
+#app/api/line.py
 import os, json, hmac, hashlib, base64, uuid, httpx, asyncio
 from dataclasses import dataclass, field
 from typing import Dict, List
@@ -28,19 +29,6 @@ class Session:
 
 sessions: Dict[str, Session] = {}
 
-
-#แบบที่ 1
-# SYMPTOMS = [
-#     ("noSymptoms", "ไม่มีอาการผิดปกติ"),
-#     ("drinkAlcohol", "ดื่มเครื่องดื่มแอลกอฮอล์"),
-#     ("smoking", "สูบบุหรี่"),
-#     ("chewBetelNut", "เคี้ยวหมาก"),
-#     ("eatSpicyFood", "กินเผ็ดแล้วระคายเคือง"),
-#     ("wipeOff", "คราบขาวลอกออกได้"),
-#     ("alwaysHurts", "เจ็บหรือระคายเคืองตลอดเวลา"),
-# ]
-
-#แบบที่ 2
 SYMPTOMS = [
     (1, "noSymptoms", "ไม่มีอาการผิดปกติ"),
     (2, "drinkAlcohol", "ดื่มเครื่องดื่มแอลกอฮอล์"),
@@ -92,21 +80,6 @@ async def _get_image_content(message_id: str, access_token: str) -> bytes:
         r = await client.get(url, headers=headers)
         r.raise_for_status()
         return r.content
-
-#แบบที่ 1 แบบย่อข้อความอาการ **แต่ตอนนี้ข้อความยังตกอยู่
-# def _quick_reply_symptoms(selected: List[str]) -> dict:
-#     items = []
-#     for key, label in SYMPTOMS:
-#         prefix = "✅ " if key in selected else ""
-#         items.append({
-#             "type": "action",
-#             "action": {"type": "postback", "label": (prefix + label)[:20], "data": f"symptom:{key}", "displayText": label}
-#         })
-#     items.append({"type": "action", "action": {"type": "postback", "label": "ประมวลผล", "data": "do:run", "displayText": "process"}})
-#     items.append({"type": "action", "action": {"type": "postback", "label": "เริ่มใหม่", "data": "do:reset", "displayText": "restart"}})
-#     return {"items": items[:13]}
-
-#แบบที่ 2 เพิ่มเลข---------
 
 def _quick_reply_symptoms(selected: List[str]) -> dict:
     items = []
